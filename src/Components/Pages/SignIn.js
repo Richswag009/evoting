@@ -64,67 +64,69 @@ const SignIn = () => {
         throw new Error("please enter a valid email or password");
       }
     } catch (error) {
-      setError(error.message);
+      setError("invalid username/password");
       console.log(error.message);
     }
   };
   // if (authCtx.isLoggedIn) {
   // }
   return (
-    <div className=" h-[80vh] bg-gradient-to-r from-[#336c80] to-[#002531]">
+    <div>
       <Navbar />
-      <form
-        action=""
-        className="px-4 bg-white rounded-lg max-w-lg border-2  shadow-md mx-auto mt-[50vh]"
-        onSubmit={handleSubmit(loginHandler)}
-      >
-        <h1 className="text--[#008751] text-center text-3xl my-3">
-          Sign up for Free
-        </h1>
-        <div className="my-2">
-          <label htmlFor="fullname">Email</label>
-          <input
-            {...register("email")}
-            type="email"
-            value={email}
-            name="email"
-            className=" rounded-2 h-[40px] w-full border p-3 my-1"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <span className="text-red-800">
-            {errors["email"]?.message} <sup>*</sup>
-          </span>
-        </div>
+      <div className=" h-[80vh] bg-gradient-to-r from-[#336c80] to-[#002531]">
+        <form
+          action=""
+          className="px-4 bg-white rounded-lg max-w-lg border-2 mt-10  shadow-md mx-auto "
+          onSubmit={handleSubmit(loginHandler)}
+        >
+          <h1 className="text--[#008751] text-center text-3xl my-3">
+            Sign up for Free
+          </h1>
+          <div className="my-2">
+            <label htmlFor="fullname">Email</label>
+            <input
+              {...register("email")}
+              type="email"
+              value={email}
+              name="email"
+              className=" rounded-2 h-[40px] w-full border p-3 my-1"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <span className="text-red-800">
+              {errors["email"]?.message} <sup>*</sup>
+            </span>
+          </div>
 
-        <div className="my-2">
-          <label htmlFor="fullname">Password</label>
-          <input
-            {...register("password")}
-            value={password}
-            type="password"
-            name="password"
-            className="  rounded-2 h-[40px] w-full border p-3 my-1"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <span className="text-red-800">{errors["password"]?.message}</span>
-        </div>
+          <div className="my-2">
+            <label htmlFor="fullname">Password</label>
+            <input
+              {...register("password")}
+              value={password}
+              type="password"
+              name="password"
+              className="  rounded-2 h-[40px] w-full border p-3 my-1"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span className="text-red-800">{errors["password"]?.message}</span>
+          </div>
 
-        {error && <span className="text-red-900">{error}</span>}
+          {error && <span className="text-red-900">{error}</span>}
 
-        {/* <Link to="/dashboard2"> */}
-        <button className="px-3 text-white text-xl tracking-wildest py-3 bg-[#008751] rounded-lg w-full my-4 border">
-          Login
-        </button>
-        {/* </Link> */}
+          {/* <Link to="/dashboard2"> */}
+          <button className="px-3 text-white text-xl tracking-wildest py-3 bg-[#008751] rounded-lg w-full my-4 border">
+            Login
+          </button>
+          {/* </Link> */}
 
-        <p className="mb-3">
-          Dont have an account??{" "}
-          <Link to="/register">
-            {" "}
-            <strong> Register here</strong>{" "}
-          </Link>
-        </p>
-      </form>
+          <p className="mb-3">
+            Dont have an account??{" "}
+            <Link to="/register">
+              {" "}
+              <strong> Register here</strong>{" "}
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

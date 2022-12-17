@@ -6,16 +6,11 @@ import SignIn from "./Components/Pages/SignIn";
 import SignUp from "./Components/Pages/SignUp";
 import Profile from "./Components/Pages/Profile";
 import Dashboard2 from "./Components/Dashboard/Dashboard2";
-import Dashboard from "./Components/Pages/Dashboard";
 // import Sidebar from "./Components/Sidebar/Sidebar";
 import { useContext } from "react";
 import AuthContext from "./Store/auth-context";
-import setAuthToken from "./utils/setAuthToken";
 import axios from "axios";
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
 function App() {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
@@ -50,7 +45,7 @@ function App() {
             <Route path="/login" element={<SignIn />} />
             <Route path="/register" element={<SignUp />} />
             <Route path="/" element={<Home user={user} />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             {isLoggedIn && (
               <Route path="/profile" element={<Profile user={user} />} />
             )}
@@ -58,15 +53,6 @@ function App() {
               <Route path="/dashboard2" element={<Dashboard2 user={user} />} />
             )}
           </Routes>
-          {/* {isLoggedIn && (
-            <Sidebar>
-            <Routes>
-            <Route path="/dashboard/home" element={<Dashboard />} />
-                <Route path="/dashboard/profile" element={<Profile />} />
-                <Route path="/dashboard/election" element={<Election />} />
-              </Routes>
-            </Sidebar>
-          )} */}
         </div>
       </BrowserRouter>
     </div>

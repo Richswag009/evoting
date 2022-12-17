@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
   return (
-    <nav className=" flex flex-row justify-between border-b-4 bg-white px-10 py-7 shadow-lg ">
+    <nav className=" flex flex-row justify-between border-b-4 bg-white px-10 py-7 shadow-lg  mb-0">
       <h1 className="text-2xl font-normal">
         {" "}
         <Link to="/">
